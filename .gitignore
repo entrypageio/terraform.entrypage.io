@@ -1,0 +1,7 @@
+# Terraform / OpenTofu artifacts
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+terraform.tfvars
+.gocache/
