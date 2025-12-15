@@ -2,7 +2,7 @@ terraform {
   required_providers {
     entrypage_io = {
       source  = "entrypage_io/entrypage_io"
-      version = "0.1.1"
+      version = "0.1.0"
     }
   }
 }

@@ -10,7 +10,7 @@ import (
 )
 
 // Replace with proper versioning when releasing.
-const version = "0.1.1"
+const version = "0.1.0"
 
 func main() {
 	err := providerserver.Serve(context.Background(), provider.New(version), providerserver.ServeOpts{
