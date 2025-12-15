@@ -1,0 +1,10 @@
+# MacOS files
+.DS_Store
+
+# Terraform / OpenTofu artifacts
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+terraform.tfvars
+.gocache/
