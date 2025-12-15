@@ -4,22 +4,22 @@ This is a quick checklist to run the provider locally (after the troubleshooting
 
 ## Build the provider
 ```sh
-go build -o /tmp/terraform-provider-entrypage_v0.1.1
+go build -o /tmp/terraform-provider-entrypage_io_v0.1.1
 ```
 
 ## Make Terraform find the provider
 Use the local plugin directory layout (macOS arm64 path shown; adjust for your OS/arch):
 ```sh
-mkdir -p /tmp/registry.terraform.io/entrypage/entrypage/0.1.1/darwin_arm64
-cp /tmp/terraform-provider-entrypage_v0.1.1 /tmp/registry.terraform.io/entrypage/entrypage/0.1.1/darwin_arm64/terraform-provider-entrypage_v0.1.1
-chmod +x /tmp/registry.terraform.io/entrypage/entrypage/0.1.1/darwin_arm64/terraform-provider-entrypage_v0.1.1
+mkdir -p /tmp/registry.terraform.io/entrypage_io/entrypage_io/0.1.1/darwin_arm64
+cp /tmp/terraform-provider-entrypage_io_v0.1.1 /tmp/registry.terraform.io/entrypage_io/entrypage_io/0.1.1/darwin_arm64/terraform-provider-entrypage_io_v0.1.1
+chmod +x /tmp/registry.terraform.io/entrypage_io/entrypage_io/0.1.1/darwin_arm64/terraform-provider-entrypage_io_v0.1.1
 ```
 
 Optional: same for OpenTofu naming (if needed):
 ```sh
-mkdir -p /tmp/registry.opentofu.org/entrypage/entrypage/0.1.1/darwin_arm64
-cp /tmp/terraform-provider-entrypage_v0.1.1 /tmp/registry.opentofu.org/entrypage/entrypage/0.1.1/darwin_arm64/terraform-provider-entrypage_v0.1.1
-chmod +x /tmp/registry.opentofu.org/entrypage/entrypage/0.1.1/darwin_arm64/terraform-provider-entrypage_v0.1.1
+mkdir -p /tmp/registry.opentofu.org/entrypage_io/entrypage_io/0.1.1/darwin_arm64
+cp /tmp/terraform-provider-entrypage_io_v0.1.1 /tmp/registry.opentofu.org/entrypage_io/entrypage_io/0.1.1/darwin_arm64/terraform-provider-entrypage_io_v0.1.1
+chmod +x /tmp/registry.opentofu.org/entrypage_io/entrypage_io/0.1.1/darwin_arm64/terraform-provider-entrypage_io_v0.1.1
 ```
 
 ## Init and apply example

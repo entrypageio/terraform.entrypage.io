@@ -1,23 +1,23 @@
 terraform {
   required_providers {
-    entrypage = {
-      source  = "entrypage/entrypage"
+    entrypage_io = {
+      source  = "entrypage_io/entrypage_io"
       version = "0.1.1"
     }
   }
 }
 
-provider "entrypage" {
+provider "entrypage_io" {
   api_key = var.entrypage_api_key
 }
 
-resource "entrypage_user" "example" {
+resource "entrypage_io_user" "example" {
   domain             = var.domain
   preferred_username = var.preferred_username
   name               = var.name
 }
 
 output "user_id" {
-  value       = entrypage_user.example.id
+  value       = entrypage_io_user.example.id
   description = "User subject identifier (sub)"
 }

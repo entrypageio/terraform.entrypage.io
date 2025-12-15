@@ -17,37 +17,37 @@ const defaultBaseURL = "https://api.entrypage.io"
 
 // Ensure the provider implementation satisfies the expected interfaces.
 var (
-	_ provider.Provider = &entrypageProvider{}
+	_ provider.Provider = &entrypageIOProvider{}
 )
 
-// entrypageProvider is the provider implementation.
-type entrypageProvider struct {
+// entrypageIOProvider is the provider implementation.
+type entrypageIOProvider struct {
 	version string
 }
 
 // New returns a new provider instance.
 func New(version string) func() provider.Provider {
 	return func() provider.Provider {
-		return &entrypageProvider{
+		return &entrypageIOProvider{
 			version: version,
 		}
 	}
 }
 
-// entrypageProviderModel maps provider schema data to a Go type.
-type entrypageProviderModel struct {
+// entrypageIOProviderModel maps provider schema data to a Go type.
+type entrypageIOProviderModel struct {
 	APIKey  types.String `tfsdk:"api_key"`
 	BaseURL types.String `tfsdk:"base_url"`
 }
 
 // Metadata returns the provider type name.
-func (p *entrypageProvider) Metadata(_ context.Context, _ provider.MetadataRequest, resp *provider.MetadataResponse) {
-	resp.TypeName = "entrypage"
+func (p *entrypageIOProvider) Metadata(_ context.Context, _ provider.MetadataRequest, resp *provider.MetadataResponse) {
+	resp.TypeName = "entrypage_io"
 	resp.Version = p.version
 }
 
 // Schema defines the provider-level configuration schema.
-func (p *entrypageProvider) Schema(_ context.Context, _ provider.SchemaRequest, resp *provider.SchemaResponse) {
+func (p *entrypageIOProvider) Schema(_ context.Context, _ provider.SchemaRequest, resp *provider.SchemaResponse) {
 	resp.Schema = providerschema.Schema{
 		Attributes: map[string]providerschema.Attribute{
 			"api_key": providerschema.StringAttribute{
@@ -65,8 +65,8 @@ func (p *entrypageProvider) Schema(_ context.Context, _ provider.SchemaRequest, 
 }
 
 // Configure prepares a configured API client for data sources and resources.
-func (p *entrypageProvider) Configure(ctx context.Context, req provider.ConfigureRequest, resp *provider.ConfigureResponse) {
-	var config entrypageProviderModel
+func (p *entrypageIOProvider) Configure(ctx context.Context, req provider.ConfigureRequest, resp *provider.ConfigureResponse) {
+	var config entrypageIOProviderModel
 	resp.Diagnostics.Append(req.Config.Get(ctx, &config)...)
 	if resp.Diagnostics.HasError() {
 		return
@@ -98,13 +98,13 @@ func (p *entrypageProvider) Configure(ctx context.Context, req provider.Configur
 }
 
 // Resources defines provider resources.
-func (p *entrypageProvider) Resources(_ context.Context) []func() resource.Resource {
+func (p *entrypageIOProvider) Resources(_ context.Context) []func() resource.Resource {
 	return []func() resource.Resource{
 		NewUserResource,
 	}
 }
 
 // DataSources defines provider data sources.
-func (p *entrypageProvider) DataSources(_ context.Context) []func() datasource.DataSource {
+func (p *entrypageIOProvider) DataSources(_ context.Context) []func() datasource.DataSource {
 	return nil
 }

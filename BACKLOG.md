@@ -8,7 +8,7 @@ This backlog currently only lists milestone `v0.2` items and they remain open fo
 - **Milestone**: `v0.2`
 
 **Description**  
-Extend `entrypage_user` with additional read-only fields based on `userSummaryResponse`: `email`, `picture`, `active`, `identity_provider`.
+Extend `entrypage_io_user` with additional read-only fields based on `userSummaryResponse`: `email`, `picture`, `active`, `identity_provider`.
 
 **Acceptance criteria**
 - [ ] Resource schema includes read-only attributes for `email`, `picture`, `active`, `identity_provider`.
@@ -18,7 +18,7 @@ Extend `entrypage_user` with additional read-only fields based on `userSummaryRe
 
 ---
 
-### 11. Add data source `entrypage_user`
+### 11. Add data source `entrypage_io_user`
 - **Status**: To Do
 - **Labels**: `type:feature`
 - **Milestone**: `v0.2`
@@ -27,7 +27,7 @@ Extend `entrypage_user` with additional read-only fields based on `userSummaryRe
 Add a data source that can look up an existing user via `domain` and `preferred_username` or `id` (`sub`), without Terraform managing the user itself.
 
 **Acceptance criteria**
-- [ ] New data source `entrypage_user` with input attributes (e.g. `domain` + `preferred_username` or `id`).
+- [ ] New data source `entrypage_io_user` with input attributes (e.g. `domain` + `preferred_username` or `id`).
 - [ ] Uses `FindUser` and/or `FindUserByPreferredUsername`.
 - [ ] Returns the same read-only fields as the resource (`id`, `preferred_username`, `email`, `picture`, `active`, `identity_provider`).
 - [ ] Behavior when "not found" is clearly defined and documented (error vs empty).
@@ -56,7 +56,7 @@ Make the HTTP timeout of the `apiClient` configurable via provider configuration
 - **Milestone**: `v0.2`
 
 **Description**  
-Add extra example configurations to show realistic use cases for `entrypage_user` and future resources/data sources.
+Add extra example configurations to show realistic use cases for `entrypage_io_user` and future resources/data sources.
 
 **Acceptance criteria**
 - [ ] Example for importing an existing user only (without create).
@@ -83,7 +83,7 @@ Document how external contributors (and your future self) should work with the r
 
 ## Milestone `vNext` – JWTs Domain Client API
 
-### 15. Implement JWTs Domain Client API support (`entrypage_domain_client` resource)
+### 15. Implement JWTs Domain Client API support (`entrypage_io_domain_client` resource)
 - **Status**: To Do
 - **Labels**: `type:feature`
 - **Milestone**: `vNext`
@@ -93,8 +93,8 @@ Add support for the "JWTS Domain Client API" of EntryPage so that JWT clients fo
 
 **Acceptance criteria**
 - [ ] New `apiClient` functions for: creating a domain client, retrieving (get/list), updating (if applicable), deleting.
-- [ ] New resource `entrypage_domain_client` with relevant attributes (e.g. `domain`, `client_id`, `client_secret` (sensitive), scopes, etc. – exact schema derived from Swagger).
-- [ ] CRUD implementation for `entrypage_domain_client` with clean error handling.
+- [ ] New resource `entrypage_io_domain_client` with relevant attributes (e.g. `domain`, `client_id`, `client_secret` (sensitive), scopes, etc. – exact schema derived from Swagger).
+- [ ] CRUD implementation for `entrypage_io_domain_client` with clean error handling.
 - [ ] Documentation with examples showing how to define and use a domain client.
 - [ ] (Optional) Data source to look up existing domain clients.
 
@@ -109,7 +109,7 @@ Add support for the "JWTS Domain Client API" of EntryPage so that JWT clients fo
 Add end-to-end acceptance tests using the official Terraform Plugin Framework test package so we can validate behavior against a real (or simulated) EntryPage API.
 
 **Acceptance criteria**
-- [ ] Basic acceptance test for `entrypage_user` that performs create/read/delete.
+- [ ] Basic acceptance test for `entrypage_io_user` that performs create/read/delete.
 - [ ] Test covers idempotent create when the user already exists.
 - [ ] Tests can be run locally against a sandbox/development environment.
 - [ ] CI can run these tests conditionally (for example only when an API key is available as a secret).

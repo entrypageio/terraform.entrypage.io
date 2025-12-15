@@ -14,7 +14,7 @@ const version = "0.1.1"
 
 func main() {
 	err := providerserver.Serve(context.Background(), provider.New(version), providerserver.ServeOpts{
-		Address: "registry.terraform.io/entrypage/entrypage",
+		Address: "registry.terraform.io/entrypage_io/entrypage_io",
 	})
 	if err != nil {
 		log.Fatal(err)

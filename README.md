@@ -7,19 +7,19 @@ A minimal Terraform provider to create entrypage.io users via the public API.
 ```hcl
 terraform {
   required_providers {
-    entrypage = {
-      source  = "entrypage/entrypage"
+    entrypage_io = {
+      source  = "entrypage_io/entrypage_io"
       version = "0.1.1"
     }
   }
 }
 
-provider "entrypage" {
+provider "entrypage_io" {
   # or set ENTRYPAGE_API_KEY in your environment
   api_key = var.entrypage_api_key
 }
 
-resource "entrypage_user" "example" {
+resource "entrypage_io_user" "example" {
   domain              = "acme.entrypage.io"
   preferred_username  = "jane.doe"
   name                = "Jane Doe"
@@ -29,7 +29,7 @@ resource "entrypage_user" "example" {
 Import (format `domain/sub`):
 
 ```sh
-terraform import entrypage_user.example acme.entrypage.io/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee
+terraform import entrypage_io_user.example acme.entrypage.io/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee
 ```
 
 ## Development
