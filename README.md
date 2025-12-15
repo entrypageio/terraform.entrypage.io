@@ -20,7 +20,9 @@ provider "entrypage_io" {
 }
 
 resource "entrypage_io_user" "example" {
-  domain              = "acme.entrypage.io"
+  # Tip: start with your sandbox domain, e.g. "acme.sandbox.entrypage.io".
+  # Custom domains (e.g. "login.yourcompany.com") work too once configured.
+  domain              = "acme.sandbox.entrypage.io"
   preferred_username  = "jane.doe"
   name                = "Jane Doe"
 }

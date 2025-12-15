@@ -5,7 +5,7 @@ variable "entrypage_api_key" {
 }
 
 variable "domain" {
-  description = "Entrypage domain (e.g. acme.entrypage.io)."
+  description = "Entrypage domain (e.g. acme.sandbox.entrypage.io to start, or your custom login domain)."
   type        = string
 }
 
